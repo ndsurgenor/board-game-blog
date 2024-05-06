@@ -11,7 +11,3 @@ $connection = mysqli_connect(
     DB_PASS,
     DB_NAME,
 );
-
-if ($connection) {
-    echo "Database connected";
-}

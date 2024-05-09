@@ -1,25 +1,9 @@
-<div class="col-md-4">
-
-    <?php
-
-    if (isset($_POST["submit"])) {
-
-        $search = $_POST["search"];
-        $query = "SELECT * FROM posts WHERE post_tags LIKE '%$search%'";
-        $searchQuery = mysqli_query($connection, $query);
-
-        if (!$searchQuery) {
-
-            die("QUERY FAILED" . mysqli_error($connection));
-        }
-    }
-
-    ?>
+<div class="col-md-4">    
 
     <!-- Blog Search Well -->
     <div class="well">
         <h4>Blog Search</h4>
-        <form action="" method="post">
+        <form action="search.php" method="post">
             <div class="input-group">
                 <input name="search" type="text" class="form-control">
                 <span class="input-group-btn">

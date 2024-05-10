@@ -30,10 +30,7 @@ include "includes/header.php";
 
                         die("QUERY FAILED" . mysqli_error($connection));
                     } else {
-
-                        $queryTable = "SELECT * FROM posts";
-                        $queryPosts = mysqli_query($connection, $queryTable);
-
+                        
                         while ($row = mysqli_fetch_assoc($queryPosts)) {
                             $postTitle = $row["post_title"];
                             $postAuthor = $row["post_author"];

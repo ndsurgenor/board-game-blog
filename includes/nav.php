@@ -8,11 +8,25 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Start Bootstrap</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
+
+                <?php
+
+                $queryTable = "SELECT * FROM category";
+                $queryCategories = mysqli_query($connection, $queryTable);
+
+                while ($row = mysqli_fetch_assoc($queryCategories)) {
+                    $categoryTitle = $row["cat_title"];
+                    echo "<li><a href='#'>{$categoryTitle}</li>";
+                }
+
+                echo "<li><a href='admin'>Admin</a></li>";
+
+                ?>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

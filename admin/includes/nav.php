@@ -66,17 +66,17 @@
                 </ul>
             </li>            
             <li>
-                <a href="bootstrap-grid.html">
+                <a href="categories.php">
                     <i class="fa fa-fw fa-wrench"></i> Categories
                 </a>
             </li>
             <li>
-                <a href="bootstrap-grid.html">
+                <a href="comments.php">
                     <i class="fa fa-fw fa-wrench"></i> Comments
                 </a>
             </li>
             <li>
-                <a href="bootstrap-grid.html">
+                <a href="profile.php">
                     <i class="fa fa-fw fa-wrench"></i> Profile
                 </a>
             </li>

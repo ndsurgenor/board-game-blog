@@ -27,7 +27,6 @@
                         <div class="col-xs-6">
                             <form action="">
                                 <div class="form-group">
-                                    <label for="cat_title"></label>
                                     <input class="form-control" type="text" name="cat_title">
                                 </div>
                                 <div class="form-group">

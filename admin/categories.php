@@ -28,6 +28,7 @@
                             
                             <?php
                             
+                            // Add and Update category forms
                             if(isset($_GET["edit"])) {
                                 $cat_id = $_GET["edit"];
                                 include "includes/edit-category.php";

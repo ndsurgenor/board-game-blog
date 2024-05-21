@@ -25,7 +25,7 @@
         if (isset($_POST["update"])) {
             $update_cat_title = $_POST["cat_title"];
 
-            $queryTable = "UPDATE category SET cat_title = {$update_cat_title} WHERE cat_id = {$cat_id}";
+            $queryTable = "UPDATE category SET cat_title = '{$update_cat_title}' WHERE cat_id = {$cat_id}";
             $queryUpdate = mysqli_query($connection, $queryTable);
         }
 

@@ -68,7 +68,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php
+                                    <?php // Find and display categories in table
                                     $queryTable = "SELECT * FROM category";
                                     $queryCategories = mysqli_query($connection, $queryTable);
 
@@ -79,8 +79,23 @@
                                         echo "<tr>";
                                         echo "<td>{$cat_id}</td>";
                                         echo "<td>{$cat_title}</td>";
+                                        echo "<td><a href='categories.php?delete={$cat_id}'>
+                                            <button class='btn btn-danger'>Delete</button></a></td>";
                                         echo "</tr>";
                                     }
+                                    ?>
+
+                                    <?php
+
+                                    if (isset($_GET["delete"])) {
+                                        $delete_cat_id = $_GET["delete"];
+
+                                        $queryTable = "DELETE FROM category WHERE cat_id = {$delete_cat_id}";
+                                        $queryDelete = mysqli_query($connection, $queryTable);
+
+                                        header("Location: categories.php");
+                                    }
+
                                     ?>
 
                                 </tbody>

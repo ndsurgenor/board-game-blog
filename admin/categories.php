@@ -24,71 +24,20 @@
                             <small>Author</small>
                         </h1>
 
-                        <div class="col-xs-6">
-
-                            <?php // Create category and add to table
-
-                            if (isset($_POST["submit"])) {
-                                $cat_title = $_POST["cat_title"];
-
-                                if ($cat_title == "" || empty($cat_title)) {
-                                    echo "This field cannot be left blank";
-                                } else {
-                                    $query = "INSERT INTO category(cat_title)";
-                                    $query .= "VALUE ('{$cat_title}')";
-
-                                    $createCategory = mysqli_query($connection, $query);
-
-                                    if (!$createCategory) {
-                                        die("QUERY FAILED" . mysqli_error($connection));
-                                    }
-                                }
+                        <div class="col-xs-6">                          
+                            
+                            <?php
+                            
+                            if(isset($_GET["edit"])) {
+                                $cat_id = $_GET["edit"];
+                                include "includes/edit-category.php";
+                            } else {
+                                include "includes/add-category.php";
                             }
-
+                            
                             ?>
 
-                            <!-- Create category form -->
-                            <form action="" method="post">
-                                <div class="form-group">
-                                    <input class="form-control" type="text" name="cat_title">
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Create">
-                                </div>
-                            </form>
-
-                            <!-- Update category form -->
-                            <form action="" method="post">
-                                <div class="form-group">
-
-                                    <?php // Edit category in table
-                                    if (isset($_GET["edit"])) {
-                                        $edit_cat_id = $_GET["edit"];
-
-                                        $queryTable = "SELECT * FROM category WHERE cat_id = {$edit_cat_id}";
-                                        $queryEdit = mysqli_query($connection, $queryTable);
-
-                                        while ($row = mysqli_fetch_assoc($queryEdit)) {
-                                            $cat_id = $row["cat_id"];
-                                            $cat_title = $row["cat_title"];
-                                    ?>
-
-                                            <input value="
-                                            <?php
-                                            if (isset($cat_title)) {
-                                                echo $cat_title;
-                                            }
-                                            ?>" class="form-control" type="text" name="cat_title">
-
-                                    <?php }
-                                    }
-                                    ?>
-
-                                </div>
-                                <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Update">
-                                </div>
-                            </form>
+                            
                         </div>
 
                         <div class="col-xs-6">

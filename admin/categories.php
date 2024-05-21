@@ -26,7 +26,7 @@
 
                         <div class="col-xs-6">
 
-                            <?php
+                            <?php // Create category and add to table
 
                             if (isset($_POST["submit"])) {
                                 $cat_title = $_POST["cat_title"];
@@ -47,12 +47,46 @@
 
                             ?>
 
+                            <!-- Create category form -->
                             <form action="" method="post">
                                 <div class="form-group">
                                     <input class="form-control" type="text" name="cat_title">
                                 </div>
                                 <div class="form-group">
-                                    <input class="btn btn-primary" type="submit" name="submit" value="Add Category">
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Create">
+                                </div>
+                            </form>
+
+                            <!-- Update category form -->
+                            <form action="" method="post">
+                                <div class="form-group">
+
+                                    <?php // Edit category in table
+                                    if (isset($_GET["edit"])) {
+                                        $edit_cat_id = $_GET["edit"];
+
+                                        $queryTable = "SELECT * FROM category WHERE cat_id = {$edit_cat_id}";
+                                        $queryEdit = mysqli_query($connection, $queryTable);
+
+                                        while ($row = mysqli_fetch_assoc($queryEdit)) {
+                                            $cat_id = $row["cat_id"];
+                                            $cat_title = $row["cat_title"];
+                                    ?>
+
+                                            <input value="
+                                            <?php
+                                            if (isset($cat_title)) {
+                                                echo $cat_title;
+                                            }
+                                            ?>" class="form-control" type="text" name="cat_title">
+
+                                    <?php }
+                                    }
+                                    ?>
+
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" name="submit" value="Update">
                                 </div>
                             </form>
                         </div>
@@ -68,7 +102,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <?php // Find and display categories in table
+                                    <?php // Read categories and display in table
                                     $queryTable = "SELECT * FROM category";
                                     $queryCategories = mysqli_query($connection, $queryTable);
 
@@ -79,13 +113,15 @@
                                         echo "<tr>";
                                         echo "<td>{$cat_id}</td>";
                                         echo "<td>{$cat_title}</td>";
+                                        echo "<td><a href='categories.php?edit={$cat_id}'>
+                                            <button class='btn btn-warning btn-sm'>Edit</button></a></td>";
                                         echo "<td><a href='categories.php?delete={$cat_id}'>
-                                            <button class='btn btn-danger'>Delete</button></a></td>";
+                                            <button class='btn btn-danger btn-sm'>Delete</button></a></td>";
                                         echo "</tr>";
                                     }
                                     ?>
 
-                                    <?php
+                                    <?php // Delete category from table
 
                                     if (isset($_GET["delete"])) {
                                         $delete_cat_id = $_GET["delete"];

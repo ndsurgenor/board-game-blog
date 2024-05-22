@@ -32,7 +32,7 @@
                                     <th>Title</th>
                                     <th>Author</th>
                                     <th>Date</th>
-                                    <th>Image File</th>
+                                    <th>Image</th>
                                     <th>Content</th>
                                     <th>Tags</th>
                                     <th>Com Count</th>
@@ -63,7 +63,7 @@
                                     echo "<td>{$post_title}</td>";
                                     echo "<td>{$post_author}</td>";
                                     echo "<td>{$post_date}</td>";
-                                    echo "<td>{$post_image}</td>";
+                                    echo "<td><img width='100' src='../images/{$post_image}'></td>";
                                     echo "<td>{$post_content}</td>";
                                     echo "<td>{$post_tags}</td>";
                                     echo "<td>{$post_com_count}</td>";

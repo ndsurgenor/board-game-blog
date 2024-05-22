@@ -58,7 +58,7 @@
                 </a>
                 <ul id="posts_drop" class="collapse">
                     <li>
-                        <a href="#">View Posts</a>
+                        <a href="posts.php">View Posts</a>
                     </li>
                     <li>
                         <a href="#">Add Posts</a>

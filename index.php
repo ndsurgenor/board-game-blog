@@ -3,6 +3,8 @@
 include "includes/db.php";
 include "includes/header.php";
 
+ob_start();
+
 ?>
 
 <body>

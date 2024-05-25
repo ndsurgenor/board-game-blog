@@ -29,11 +29,13 @@
                         
                         if(isset($_GET["source"])){
                             $source = $_GET["source"];
+                        } else {
+                            $source = "";
                         }
 
                         switch($source) {
-                            case "1";
-                            echo "1";
+                            case "add_posts";
+                            include "includes/add-posts.php";
                             break;
 
                             case "2";

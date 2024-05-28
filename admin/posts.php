@@ -34,8 +34,8 @@
                         }
 
                         switch($source) {
-                            case "add_posts";
-                            include "includes/add-posts.php";
+                            case "add-post";
+                            include "includes/add-post.php";
                             break;
 
                             case "2";

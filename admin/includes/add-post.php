@@ -1,7 +1,16 @@
 <?php
 
-if(isset($_POST["submit"])){
-    
+if (isset($_POST["submit"])) {
+    $post_category_id = $_POST["post_category_id"];
+    $post_title = $_POST["post_title"];
+    $post_author = $_POST["post_author"];
+    $post_date = date("d-m-y");
+    $post_image = $_FILES["post_image"]["name"];
+    $post_image_temp = $_FILES["post_image"]["temp_name"];
+    $post_content = $_POST["post_content"];
+    $post_tags = $_POST["post_tags"];
+    $post_comment_count = 4;
+    $post_status = $_POST["post_status"];
 }
 
 ?>

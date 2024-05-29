@@ -38,14 +38,6 @@
                             include "includes/add-post.php";
                             break;
 
-                            case "2";
-                            echo "2";
-                            break;
-
-                            case "3";
-                            echo "3";
-                            break;
-
                             default:
                             include "includes/read-posts.php";
 

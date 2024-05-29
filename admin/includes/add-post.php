@@ -11,6 +11,32 @@ if (isset($_POST["submit"])) {
     $post_tags = $_POST["post_tags"];
     $post_comment_count = 4;
     $post_status = $_POST["post_status"];
+
+    move_uploaded_file($post_image_temp, "../images/$post_image");
+
+    $query = "INSERT INTO posts (
+        post_category_id,
+        post_title,
+        post_author,
+        post_date,
+        post_image,
+        post_content,
+        post_tags,
+        post_comment_count,
+        post_status
+        ) ";
+
+    $query .= "VALUES (
+        '{$post_category_id}',
+        '{$post_title}',
+        '{$post_author}',
+        now(),
+        '{$post_image}',
+        '{$post_content}',
+        '{$post_tags}',
+        '{$post_comment_count}',
+        '{$post_status}'
+        )";
 }
 
 ?>
@@ -24,7 +50,7 @@ if (isset($_POST["submit"])) {
 
     <div class="form-group">
         <label for="category">Category</label>
-        <select name="post_category" id=""></select>
+        <select name="post_category_id" id=""></select>
 
     </div>
 
